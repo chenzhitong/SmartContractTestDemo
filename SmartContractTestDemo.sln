@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VerifySmartContract", "VerifySmartContract\VerifySmartContract.csproj", "{C4D85885-BDCF-4BCD-A32F-8D632C896452}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VerifyTest", "VerifyTest\VerifyTest.csproj", "{8BD75299-FBA0-4504-A083-6218999B80F2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C4D85885-BDCF-4BCD-A32F-8D632C896452}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4D85885-BDCF-4BCD-A32F-8D632C896452}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4D85885-BDCF-4BCD-A32F-8D632C896452}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4D85885-BDCF-4BCD-A32F-8D632C896452}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BD75299-FBA0-4504-A083-6218999B80F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BD75299-FBA0-4504-A083-6218999B80F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BD75299-FBA0-4504-A083-6218999B80F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BD75299-FBA0-4504-A083-6218999B80F2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1C8331D5-1B19-44D5-960D-A4F55DA4E9E2}
+	EndGlobalSection
+EndGlobal
