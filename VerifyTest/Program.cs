@@ -1,7 +1,8 @@
 ﻿using Neo;
-using Neo.Core;
-using Neo.Implementations.Blockchains.LevelDB;
 using Neo.IO;
+using Neo.Ledger;
+using Neo.Network.P2P.Payloads;
+using Neo.Persistence.LevelDB;
 using Neo.SmartContract;
 using Neo.VM;
 using Neo.Wallets;
@@ -9,8 +10,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace VerifyTest
 {
@@ -18,10 +17,7 @@ namespace VerifyTest
     {
         static void Main(string[] args)
         {
-            //Need libleveldb.dll, and requires a platform(x86 or x64) that is consistent with the program.
-            //Need protocal.json
-            //Path of blockchain folder
-            Blockchain.RegisterBlockchain(new LevelDBBlockchain("C:\\Users\\chenz\\Desktop\\PrivateNet\\neo-gui 2.7.6\\Chain_0001142D"));
+            var system = new NeoSystem(new LevelDBStore("D:\\PrivateNet2\\NEO-GUI 2.9 release\\Chain_0001E240"));
 
             //var tx = SGASTest.MintTokens();
             var tx = CreateTx();
@@ -35,7 +31,7 @@ namespace VerifyTest
                 Console.WriteLine("Invalid Transaction Format");
             }
 
-            Console.WriteLine("Verify Transaction:" + tx.Verify(new List<Transaction> { tx }));
+            Console.WriteLine("Verify Transaction:" + tx.Verify(Blockchain.Singleton.GetSnapshot(), new List<Transaction> { tx }));
 
             Console.WriteLine("Raw Transaction:");
             Console.WriteLine(tx.ToArray().ToHexString());
@@ -57,7 +53,7 @@ namespace VerifyTest
             var outputs = new List<TransactionOutput>{ new TransactionOutput()
             {
                 AssetId = Blockchain.UtilityToken.Hash,
-                ScriptHash = Wallet.ToScriptHash("ARk2pLaBt2LfK1PrmSjs4SPoRkp94rsEsE"),
+                ScriptHash = "ARk2pLaBt2LfK1PrmSjs4SPoRkp94rsEsE".ToScriptHash(),
                 Value = new Fixed8((long)(1 * (long)Math.Pow(10, 8)))
             }}.ToArray();
 
@@ -78,7 +74,7 @@ namespace VerifyTest
                     Outputs = outputs,
                     Inputs = inputs,
                     Attributes = new TransactionAttribute[0],
-                    Scripts = new Witness[] { witness }
+                    Witnesses = new Witness[] { witness }
                 };
             }
         }
